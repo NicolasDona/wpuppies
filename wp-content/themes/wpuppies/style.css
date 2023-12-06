@@ -1,0 +1,56 @@
+/*
+Theme Name: Themes puppies
+Theme URI: https://wpuppies.localhost
+Author: NicolasD
+Author URI: https://wpuppies.localhost
+Description: Les plus adorables chiots
+Version: 1.0
+*/
+
+    .hover-underline:hover {
+    text-decoration: underline !important;
+    }
+
+.tlogo {
+    width: 130px;
+    height: 130px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.bg-image {
+    background-image: url('/wp-content/themes/wpuppies/bg.jpg');
+    background-size: cover;
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.font-title {
+    font-family: 'Raleway', serif;
+    color: #BDC3C7;
+}
+
+.regular {
+
+    font-family: Lato;
+    font-family: 'Raleway', serif;
+    color: #BDC3C7;
+}
+
+.footer-bg {
+    background-image: url('/wp-content/themes/wpuppies/bg1.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* ou "contain" selon vos préférences */
+}
+
+.footer-st {
+    background-color: #39464C;
+}
