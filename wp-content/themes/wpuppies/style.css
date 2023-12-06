@@ -6,51 +6,71 @@ Author URI: https://wpuppies.localhost
 Description: Les plus adorables chiots
 Version: 1.0
 */
-
-    .hover-underline:hover {
+.hover-underline:hover {
     text-decoration: underline !important;
     }
-
 .tlogo {
     width: 130px;
     height: 130px;
 }
-
+.container-fluid, .row {
+    padding-right: 0;
+    padding-left: 0;
+}
+.col-md-12 {
+    padding: 0;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
-
 .bg-image {
-    background-image: url('/wp-content/themes/wpuppies/bg.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh; /* la hauteur image de fond */
+    background-image: url('/wp-content/themes/wpuppies/bg1.jpg');
     background-size: cover;
-    height: 70vh;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center center; /* Centrer l'image de fond */
+    margin: 0;
+    padding: 0;
 }
-
 .font-title {
     font-family: 'Raleway', serif;
     color: #BDC3C7;
 }
-
 .regular {
-
     font-family: Lato;
     font-family: 'Raleway', serif;
     color: #BDC3C7;
 }
-
 .footer-bg {
     background-image: url('/wp-content/themes/wpuppies/bg1.jpg');
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    /* ou "contain" selon vos préférences */
 }
-
 .footer-st {
     background-color: #39464C;
+}
+.color-card-title {
+    color: #08AEEA;
+}
+.color-card-text {
+    color: #1A1A1B;
+}
+.color-card-badge {
+    background-color: #FED701;
+}
+.card-img-top {
+    width: 100%; /* Assurez-vous que l'image est toujours aussi large que son conteneur */
+    height: 300px; /* Fixez une hauteur spécifique pour toutes les images */
+    object-fit: cover; /* Couvrir l'espace disponible sans redimensionner l'image */
+    object-position: center; /* Centrez l'image dans son conteneur */
+}
+.card {
+    max-width: 350px; /* Réduisez la largeur maximale selon vos besoins */
+    margin: auto; /* Cela gardera la carte centrée dans la colonne Bootstrap */
 }
