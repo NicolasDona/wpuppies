@@ -1,72 +1,27 @@
-
 <?php get_header(); ?>
-
 <div class="font-title text-center p-5">
-            <p class="font-title fs-2 text-white">Catégorie 1</p>
-            <p class="font-title fs-3 text-white">Description de la catégorie sur plusieurs lignes</P>
-        </div>
-
-    <div class="container-fluid">
-            <div class="row">
-                <div class="col-4">
-                    <div class="card mt-5">
-                        <img class="card-img-top" src="/wp-content/themes/wpuppies/bg.jpg" alt="Card image cap">
+    <p class="font-title fs-2 text-white"><?php single_cat_title(); ?></p>
+    <p class="font-title fs-3 text-white"><?php echo category_description(); ?></p>
+</div>
+<div class="container">
+    <div class="row">
+        <?php if ( have_posts() ) : ?>
+            <?php while ( have_posts() ) : the_post(); ?>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <?php if ( has_post_thumbnail() ) : ?>
+                            <img class="card-img-top" src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>">
+                        <?php endif; ?>
                         <div class="card-body">
-                            <h5 class="card-title color-card-title">Titre de l'article</h5>
-                            <p class="card-text color-card-text">Description de l'article sur plusieurs lignes.</p>
+                            <h5 class="card-title"><?php the_title(); ?></h5>
+                            <p class="card-text"><?php the_excerpt(); ?></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="card mt-5">
-                        <img class="card-img-top img-fluid" src="/wp-content/themes/wpuppies/bg2.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title color-card-title">Titre de l'article</h5>
-                            <p class="card-text color-card-text">Description de l'article sur plusieurs lignes.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card mt-5">
-                        <img class="card-img-top" src="/wp-content/themes/wpuppies/bg.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title color-card-title">Titre de l'article</h5>
-                            <p class="card-text color-card-text">Description de l'article sur plusieurs lignes.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-4">
-                    <div class="card mt-5">
-                        <img class="card-img-top" src="/wp-content/themes/wpuppies/bg.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title color-card-title">Titre de l'article</h5>
-                            <p class="card-text color-card-text">Description de l'article sur plusieurs lignes.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card mt-5">
-                        <img class="card-img-top img-fluid" src="/wp-content/themes/wpuppies/bg2.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title color-card-title">Titre de l'article</h5>
-                            <p class="card-text color-card-text">Description de l'article sur plusieurs lignes.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card mt-5">
-                        <img class="card-img-top" src="/wp-content/themes/wpuppies/bg.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title color-card-title">Titre de l'article</h5>
-                            <p class="card-text color-card-text">Description de l'article sur plusieurs lignes.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php get_footer(); ?>
+            <?php endwhile; ?>
+        <?php else : ?>
+            <p class="text-center">Aucun article trouvé dans cette catégorie.</p>
+        <?php endif; ?>
+    </div>
+</div>
+<?php get_footer(); ?>

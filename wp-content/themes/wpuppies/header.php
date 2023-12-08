@@ -18,26 +18,26 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
     <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img class="tlogo" src="/wp-content/themes/wpuppies/logo.png"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img class="tlogo" src="/wp-content/themes/wpuppies/logo.png"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto"><!--Ajustement Droite-->
-                    <li class="nav-item me-5">
-                        <a class="text-decoration-none hover-underline" href="http://wpuppies.localhost/category/non-classe/">Catégorie 1</a>
-                    </li>
-                    <li class="nav-item me-5">
-                        <a class="text-decoration-none hover-underline" href="#">Catégorie 2</a>
-                    </li>
-                    <li class="nav-item me-5">
-                        <a class="text-decoration-none hover-underline" href="#">Catégorie 3</a>
-                    </li>
+                    <?php
+                        $menu_items = wp_get_nav_menu_items('Menu1'); // Remplacez 'votre-menu' par le nom, le slug ou l'ID de votre menu
+                        foreach ( $menu_items as $menu_item ) {
+                            echo '<li class="nav-item me-5">';
+                            echo '<a class="text-decoration-none hover-underline" href="' . $menu_item->url . '">' . $menu_item->title . '</a>';
+                            echo '</li>';
+                        }
+                    ?>
                 </ul>
             </div>
-            </div>
-        </nav>
+        </div>
+    </nav>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 title-center">
