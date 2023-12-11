@@ -20,14 +20,14 @@
     <header>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img class="tlogo" src="/wp-content/themes/wpuppies/logo.png"></a>
+            <a class="navbar-brand" href="/"><img class="tlogo" src="<?= get_template_directory_uri(); ?>/logo.png"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto"><!--Ajustement Droite-->
                     <?php
-                        $menu_items = wp_get_nav_menu_items('Menu1'); // Remplacez 'votre-menu' par le nom, le slug ou l'ID de votre menu
+                        $menu_items = wp_get_nav_menu_items('Menu1'); //le nom, le slug ou l'ID du menu
                         foreach ( $menu_items as $menu_item ) {
                             echo '<li class="nav-item me-5">';
                             echo '<a class="text-decoration-none hover-underline" href="' . $menu_item->url . '">' . $menu_item->title . '</a>';
@@ -42,7 +42,8 @@
             <div class="row">
                 <div class="col-md-12 title-center">
                     <div class="bg-image img-fluid text-center text-white font-title title-ps">
-                        <h1>Titre du site</h1>
+                        <h1><?=get_bloginfo('name'); ?></h1>
+                        
                     </div>
                 </div>
             </div>
@@ -50,4 +51,3 @@
 <?php ?>
     </header>
     <main>
-

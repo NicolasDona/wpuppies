@@ -7,14 +7,15 @@
             <p class="font-title fs-2 text-white">Articles les plus populaires</P>
         </div>
         <div class="container-fluid">
+        <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
             <div class="row">
                 <div class="col-4">
                     <div class="card mt-5">
                         <img class="card-img-top" src="/wp-content/themes/wpuppies/bg.jpg" alt="Card image cap">
                         <div class="card-body">
                             <span class="badge color-card-badge">Catégorie</span>
-                            <h5 class="card-title color-card-title">Titre de l'article</h5>
-                            <p class="card-text color-card-text">Description de l'article sur plusieurs lignes.</p>
+                            <h5 class="card-title color-card-title"><?php the_title(); ?></h5>
+                            <p class="card-text color-card-text"><?php the_excerpt(); ?></p>
                         </div>
                     </div>
                 </div>
@@ -23,8 +24,8 @@
                         <img class="card-img-top img-fluid" src="/wp-content/themes/wpuppies/bg2.jpg" alt="Card image cap">
                         <div class="card-body">
                             <span class="badge color-card-badge">Catégorie</span>
-                            <h5 class="card-title color-card-title">Titre de l'article</h5>
-                            <p class="card-text color-card-text">Description de l'article sur plusieurs lignes.</p>
+                            <h5 class="card-title color-card-title"><?php the_title(); ?></h5>
+                            <p class="card-text color-card-text"><?php the_excerpt(); ?></p>
                         </div>
                     </div>
                 </div>
@@ -33,22 +34,28 @@
                         <img class="card-img-top" src="/wp-content/themes/wpuppies/bg.jpg" alt="Card image cap">
                         <div class="card-body">
                             <span class="badge color-card-badge">Catégorie</span>
-                            <h5 class="card-title color-card-title">Titre de l'article</h5>
-                            <p class="card-text color-card-text">Description de l'article sur plusieurs lignes.</p>
+                            <h5 class="card-title color-card-title"><?php the_title(); ?></h5>
+                            <p class="card-text color-card-text"><?php the_excerpt(); ?></p>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php endwhile; endif; ?>
         </div>
         <div class="container-fluid justify-content-center text-center p-5 ">
             <div class="row letter-sp">
                 <!-- Block Gauche -->
                 <div class="col-4 text-center">
                     <h5 class="font-title fw-bold text-center text-white">Accès rapide</h5>
-                    <p><a href="#" class="regular text-decoration-none hover-underline" target="_blank">Accueil</a></p>
-                    <p><a href="#" class="regular text-decoration-none hover-underline" target="_blank">Catégorie 1</a></p>
-                    <p><a href="#" class="regular text-decoration-none hover-underline" target="_blank">Catégorie 2</a></p>
-                    <p><a href="#" class="regular text-decoration-none hover-underline" target="_blank">Catégorie 3</a></p>
+                    <a href="/" class="regular text-decoration-none hover-underline" target="_blank">Accueil</a>
+                    <?php
+                    $menu_items = wp_get_nav_menu_items('Menu1'); //le nom, le slug ou l'ID du menu
+                        foreach ( $menu_items as $menu_item ) {
+                            echo '<li class="fast-access">';
+                            echo '<a class="text-decoration-none hover-underline regular" href="' . $menu_item->url . '">' . $menu_item->title . '</a>';
+                            echo '</li>';
+                        }
+                    ?>
                 </div>
                 <!-- Partie centrale -->
                 <div class="col-4 text-center">

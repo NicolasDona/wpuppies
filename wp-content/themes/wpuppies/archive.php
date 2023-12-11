@@ -10,7 +10,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <?php if ( has_post_thumbnail() ) : ?>
-                            <img class="card-img-top" src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>">
+                            <a href="<?=the_permalink(); ?>"><img class="card-img-top" src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>"></a>
                         <?php endif; ?>
                         <div class="card-body">
                             <h5 class="card-title"><?php the_title(); ?></h5>

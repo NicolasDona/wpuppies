@@ -34,3 +34,27 @@ function wpuppies_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'wpuppies_assets' );
 add_theme_support( 'post-thumbnails' );
+// Compteur de vue
+function setPostViews($post_ID) {
+    $count_metakey = 'post_views_count';
+    $views = get_post_meta($post_ID, $count_metakey, true);
+    if($views==''){
+        $views = 0;
+        delete_post_meta($post_ID, $count_metakey);
+        add_post_meta($post_ID, $count_metakey, '0');
+    }else{
+        $views++;
+        update_post_meta($post_ID, $count_metakey, $views);
+    }
+}
+//lecteur de nombre de vue
+function getPostViews($post_ID){
+    $count_metakey = 'post_views_count';
+    $views = get_post_meta($post_ID, $count_metakey, true);
+    if($views==''){
+        delete_post_meta($post_ID, $count_metakey);
+        add_post_meta($post_ID, $count_metakey, '0');
+        return "0";
+    }
+    return $views;
+}
